@@ -1,0 +1,392 @@
+/* ==UserStyle==
+
+@name				Stylus Dracula
+@namespace			https://github.com/Himither
+@homepageURL			https://github.com/Himither/Stylus-Dracula
+@supportURL			https://github.com/Himither/Stylus-Dracula/issues
+@version			1.0.0
+@updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
+@description			Improved dracula theme covering the whole extension instead of just the editor
+@author				Himither
+@license			MIT
+@preprocessor			stylus
+
+==/UserStyle== */
+
+@-moz-document regexp("chrome-extension://.*"), regexp("moz-extension://.*") {
+:root {
+
+	/* https://draculatheme.com/contribute#color-palette */
+	--background: #282A36;
+	--currentLine: #44475A;
+	--foreground: #F8F8F2;
+	--comment: #6272A4;
+	--cyan: #8BE9FD;
+	--green: #50FA7B;
+	--orange: #FFB86C;
+	--pink: #FF79C6;
+	--purple: #BD93F9;
+	--red: #FF5555;
+	--yellow: #F1FA8C;
+
+	--fg: var(--foreground);
+	--bg: var(--background);
+
+	/* Overwriting root colors, because I dunno how to look at the CSS from Stylus */
+	--cmin: var(--orange); /* Color of hovered labels belonging to active styles */
+	--c00: var(--fg);
+	--c10: var(--fg);
+	--c20: var(--fg);
+	--c30: var(--orange); /* Color of hovered labels belonging to unactive styles */
+	--c40: var(--green);
+	--c45: var(--green);
+	--c50: var(--currentLine); /* Color of disabled label and find styles -> style borders */
+	--c60: var(--currentLine); /* Color disabled styles, their labels and options border */
+	--c65: var(--foreground); /* Color of style order number in the popup */
+	--c70: var(--bg); /* Color of background gradient for popup -> Find Styles */
+	--c75: var(--currentLine); /* Color of scrollbar */
+	--c80: var(--currentLine); /* Color of dotted borders */
+	--c85: var(--bg); /* Color of some horizontal borders and gradient atbottom of find styles*/
+	--c90: var(--bg); /* Color of options footer */
+	--c95: var(--bg);
+	--c97: var(--bg); /* Color of #header (sidemenu of editor) background */
+	--c98: var(--bg); /* Color of editor background */
+	--c99: var(--bg);
+	--c100: var(--bg);
+	--cmax: var(--bg);
+
+	--50: var(--purple);
+
+	--accent-1: var(--red);
+	--accent-2: var(--cyan);
+	--accent-3: var(--red);
+
+	--gold1: var(--purple);
+}
+
+/* ------------------------------------------------------ General */
+*::selection {
+	color: var(--bg);
+	background-color: var(--pink) !important;
+}
+
+/* ------------------------------------------------------ Extension Popup */
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div > button:has(+ button) {
+	border-radius: 4px 0 0 4px !important;
+}
+
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div > button + button {
+	border-radius: 0 4px 4px 0 !important;
+	margin-left: 1px !important;
+}
+
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div {
+	box-shadow: none !important;
+	background-color: var(--bg);
+}
+
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div)) {
+	border-color: var(--white) !important;
+	border-radius: 4px !important;
+}
+
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div, button)) *:hover {
+	background-color: var(--currentLine);
+	color: var(--cyan) !important;
+}
+
+body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) *:not(label, a) {
+	color: var(--fg);
+}
+
+/* ------------------------------------------------------ Edit Page */
+div#header {
+	box-shadow: none;
+}
+
+details#options section.aligned {
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+}
+
+details#options section.aligned > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+details#options section.aligned > div > div {
+	margin-left: auto;
+	order: 1;
+}
+
+#header-resizer {
+	opacity: 0.25;
+	color: var(--comment);
+	box-shadow: none;
+}
+
+section#usw-data {
+	display: flex;
+	flex-direction: column;
+}
+
+section#usw-data > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+section#usw-data > div > input {
+	width: 50%;
+}
+
+#header-resizer:active {
+	opacity: 1;
+	color: var(--comment) !important;
+}
+
+div:is(.CodeMirror-active, .CodeMirror-focused, .search-target-editor) {
+	box-shadow: none !important;
+}
+
+div.section > div.CodeMirror {
+	margin: 8px 0;
+	border-radius: 4px
+}
+
+div.resize-grip,
+div.resize-grip::after {
+	color: var(--currentLine)
+}
+
+div.CodeMirror-gutter-background {
+	background-color: var(--currentLine);
+}
+
+.CodeMirror-linenumber {
+	color: var(--currentLine) !important;
+}
+
+.CodeMirror-linenumber:hover,
+.CodeMirror-activeline .CodeMirror-linenumber {
+	color: var(--fg) !important;
+}
+
+div.CodeMirror-activeline-background {
+	background-color: var(--currentLine) !important;
+}
+
+/* ------------------------------------------------------ Mangage Page */
+#manage-settings {
+	padding-right: 4px;
+}
+
+#manage-settings .filter-selection .select-wrapper {
+	left: 28px;
+}
+
+#manage-settings .filter-selection {
+	margin-bottom: 4px;
+}
+
+#manage-settings #search-wrapper input {
+	border-radius: 4px 0 0 4px !important;
+}
+
+#manage-settings #search-wrapper select {
+	border-radius: 0 4px 4px 0 !important;
+	margin-left: 2px;
+}
+
+#message-box #message-box-contents section[data-prio] header {
+	background-color: var(--purple);
+	color: var(--bg);
+}
+
+
+/* ------------------------------------------------------ Dialog, Modal */
+#message-box > div,
+div#help-popup,
+body#stylus-options {
+	opacity: 0.95 !important;
+	border-radius: 8px;
+}
+
+#message-box-title,
+#help-popup > div.title,
+body#stylus-options header {
+	background-color: var(--currentLine);
+	border-radius: 8px 8px 0 0;
+}
+
+body#stylus-options {
+	border-color: transparent;
+}
+
+body#stylus-options header {
+	border-bottom-color: transparent;
+}
+
+body#stylus-options div.actions button.connect {
+	border-radius: 4px 0 0 4px !important;
+}
+
+body#stylus-options div.actions button.connect + button {
+	border-radius: 0 4px 4px 0 !important;
+	margin-left: 1px
+}
+
+body#stylus-options footer {
+	border-radius: 0 0 8px 8px;
+}
+
+#message-box-buttons {
+	background-color: var(--currentLine);
+	border-radius: 0 0 8px 8px;
+}
+
+div#search-replace-dialog {
+	padding-top: .75em;
+	;
+	border-radius: 0 0 8px 8px;
+	border-color: transparent;
+}
+
+div#search-replace-dialog > div {
+	padding-left: .75em;
+}
+
+#search-replace-dialog a:hover {
+	text-decoration: none !important;
+}
+
+#search-replace-dialog [data-action="case"][data-enabled]::after {
+	border-color: var(--cyan);
+}
+
+div#search-replace-dialog div[data-type="status"] {
+	border-radius: 0 0 8px 8px;
+}
+
+div#search-replace-dialog textarea {
+	box-shadow: none;
+	border-radius: 4px !important;
+}
+
+#search-replace-dialog > div {
+	background-color: var(--bg) !important;
+}
+
+
+/* ------------------------------------------------------ Button, Input, Textarea, Select, Summary */
+input,
+button,
+select,
+textarea {
+	background-color: var(--currentLine) !important;
+	border-color: transparent !important;
+	border-radius: 4px !important;
+}
+
+input:not([disabled]):hover,
+button:not([disabled]):hover,
+select:not([disabled]):hover {
+	border-color: var(--comment) !important;
+	box-shadow: none !important;
+}
+
+input:not([disabled]):focus,
+select:not([disabled]):focus {
+	box-shadow: none !important;
+}
+
+input[type=range] {
+	appearance: none;
+	height: 6px !important;
+}
+
+label:has(:is(input, select):hover) {
+	color: var(--orange);
+}
+
+input[type="radio"]:checked::after {
+	background-color: var(--orange);
+}
+
+input.slider::after {
+	box-shadow: none;
+	border-color: var(--currentLine);
+	background-color: var(--bg)
+}
+
+input.slider:checked::after {
+	border-color: transparent;
+}
+
+button {
+	background-image: unset;
+}
+
+button.install:hover {
+	color: var(--cyan) !important;
+}
+
+button#save-button:not([disabled]) {
+	background-image: unset;
+	background-color: var(--purple) !important;
+}
+
+button#save-button:not([disabled]):hover {
+	color: var(--currentLine) !important;
+	border-color: transparent !important;
+}
+
+button[data-cmd="close"],
+button#manage {
+	color: var(--red) !important;
+}
+
+button[data-cmd="close"]:hover,
+button#manage:hover {
+	border-color: var(--red) !important;
+}
+
+summary:hover {
+	color: var(--pink);
+}
+
+/* ------------------------------------------------------ Links */
+a:hover,
+#toc li:hover {
+	color: var(--cyan) !important;
+}
+
+#toc li:hover {
+	background-color: var(--currentLine);
+	border-radius: 4px;
+}
+
+/* Icons */
+i {
+	color: var(--fg) !important;
+}
+
+i:hover {
+	color: var(--pink) !important;
+}
+
+i.i-close,
+a.remove-applies-to:hover i.i-minus {
+	color: var(--red) !important;
+}
+
+a.add-applies-to:hover i.i-plus {
+	color: var(--green) !important;
+}
+
+a.injection-order-toggle:hover::after {
+	color: var(--yellow) !important;
+}
+}
