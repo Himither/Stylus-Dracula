@@ -4,7 +4,7 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.1
+@version			1.0.2
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
@@ -383,8 +383,15 @@
 		border-color: var(--red) !important;
 	}
 
-	summary:hover {
-		color: var(--pink);
+	details#publish summary::marker,
+	details#publish summary h2 {
+		color: var(--fg) !important;
+	}
+
+	summary:hover,
+	details#publish summary:hover h2,
+	details#publish:has(summary:hover) summary::marker {
+		color: var(--pink) !important;
 	}
 
 	/* ------------------------------------------------------ Links */
