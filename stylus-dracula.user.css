@@ -4,9 +4,8 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.0
-@updateURL			https: //raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
-@description			Improved Dracula theme covering the whole extension instead of just the editor
+@version			1.0.1
+@description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
 @license			MIT
 
@@ -28,36 +27,36 @@
 		--fg: var(--foreground);
 		--bg: var(--background);
 		/* Overwriting root colors, because I dunno how to look at the CSS from Stylus */
-		/* Color of hovered labels belonging to active styles */
 		--cmin: var(--orange);
+		/* Color of hovered labels belonging to active styles */
 		--c00: var(--fg);
 		--c10: var(--fg);
 		--c20: var(--fg);
-		/* Color of hovered labels belonging to unactive styles */
 		--c30: var(--orange);
+		/* Color of hovered labels belonging to unactive styles */
 		--c40: var(--green);
 		--c45: var(--green);
-		/* Color of disabled label and find styles -> style borders */
 		--c50: var(--currentLine);
-		/* Color disabled styles, their labels and options border */
+		/* Color of disabled label and find styles -> style borders */
 		--c60: var(--currentLine);
-		/* Color of style order number in the popup */
+		/* Color disabled styles, their labels and options border */
 		--c65: var(--foreground);
-		/* Color of background gradient for popup -> Find Styles */
+		/* Color of style order number in the popup */
 		--c70: var(--bg);
-		/* Color of scrollbar */
+		/* Color of background gradient for popup -> Find Styles */
 		--c75: var(--currentLine);
-		/* Color of dotted borders */
+		/* Color of scrollbar */
 		--c80: var(--currentLine);
-		/* Color of some horizontal borders and gradient atbottom of find styles*/
+		/* Color of dotted borders */
 		--c85: var(--bg);
-		/* Color of options footer */
+		/* Color of some horizontal borders and gradient atbottom of find styles*/
 		--c90: var(--bg);
+		/* Color of options footer */
 		--c95: var(--bg);
-		/* Color of #header (sidemenu of editor) background */
 		--c97: var(--bg);
-		/* Color of editor background */
+		/* Color of #header (sidemenu of editor) background */
 		--c98: var(--bg);
+		/* Color of editor background */
 		--c99: var(--bg);
 		--c100: var(--bg);
 		--cmax: var(--bg);
@@ -108,6 +107,16 @@
 		box-shadow: none;
 	}
 
+	div.split-btn-menu {
+		border-radius: 4px;
+		border-color: var(--fg);
+	}
+
+	div.split-btn-menu a:hover {
+		color: var(--cyan);
+		background-color: var(--currentLine);
+	}
+
 	details#options section.aligned {
 		display: flex;
 		flex-direction: column;
@@ -124,12 +133,6 @@
 		order: 1;
 	}
 
-	#header-resizer {
-		opacity: 0.25;
-		color: var(--comment);
-		box-shadow: none;
-	}
-
 	section#usw-data {
 		display: flex;
 		flex-direction: column;
@@ -144,6 +147,12 @@
 
 	section#usw-data > div > input {
 		width: 50%;
+	}
+
+	#header-resizer {
+		opacity: 0.25;
+		color: var(--comment);
+		box-shadow: none;
 	}
 
 	#header-resizer:active {
@@ -335,6 +344,10 @@
 		color: var(--cyan) !important;
 	}
 
+	button#save-button {
+		border-radius: 4px 0 0 4px !important;
+	}
+
 	button#save-button:not([disabled]) {
 		background-image: unset;
 		background-color: var(--purple) !important;
@@ -343,6 +356,20 @@
 	button#save-button:not([disabled]):hover {
 		color: var(--currentLine) !important;
 		border-color: transparent !important;
+	}
+
+	button#save-button + button.split-btn-pedal {
+		background-image: unset !important;
+		border-radius: 0 4px 4px 0 !important;
+	}
+
+	button#save-button + button.split-btn-pedal:hover {
+		color: var(--currentLine) !important;
+		border-color: transparent !important;
+	}
+
+	button#save-button:not([disabled]) + button.split-btn-pedal {
+		background-color: var(--purple) !important;
 	}
 
 	button[data-cmd="close"],
