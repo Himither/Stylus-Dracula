@@ -4,14 +4,16 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.2
+@version			1.0.3
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
 @license			MIT
 
 ==/UserStyle== */
-@-moz-document regexp("chrome-extension://.*"), regexp("moz-extension://.*") {
+@-moz-document regexp("chrome-extension://.*"),
+regexp("moz-extension://.*"),
+regexp("^\\w+-extension://.+") {
 	:root {
 		/* https://draculatheme.com/contribute#color-palette */
 		--background: #282A36;
@@ -28,8 +30,8 @@
 		--fg: var(--foreground);
 		--bg: var(--background);
 		/* Overwriting root colors, because I dunno how to look at the CSS from Stylus */
-		--cmin: var(--orange);
 		/* Color of hovered labels belonging to active styles */
+		--cmin: var(--orange);
 		--c00: var(--fg);
 		--c10: var(--fg);
 		--c20: var(--fg);
@@ -86,7 +88,7 @@
 
 	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div {
 		box-shadow: none !important;
-		background-color: var(--bg);
+		background-color: var(--bg) !important;
 	}
 
 	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div)) {
@@ -95,48 +97,48 @@
 	}
 
 	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div, button)) *:hover {
-		background-color: var(--currentLine);
+		background-color: var(--currentLine) !important;
 		color: var(--cyan) !important;
 	}
 
 	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) *:not(label, a) {
-		color: var(--fg);
+		color: var(--fg) !important;
 	}
 
 	/* ------------------------------------------------------ Edit Page */
 	div#header {
-		box-shadow: none;
+		box-shadow: none !important;
 	}
 
 	div.split-btn-menu {
-		border-radius: 4px;
-		border-color: var(--fg);
+		border-radius: 4px !important;
+		border-color: var(--fg) !important;
 	}
 
 	div.split-btn-menu a:hover {
-		color: var(--cyan);
-		background-color: var(--currentLine);
+		color: var(--cyan) !important;
+		background-color: var(--currentLine) !important;
 	}
 
 	details#options section.aligned {
-		display: flex;
-		flex-direction: column;
-		row-gap: 4px;
+		display: flex !important;
+		flex-direction: column !important;
+		row-gap: 4px !important;
 	}
 
 	details#options section.aligned > div {
-		display: flex;
-		justify-content: space-between;
+		display: flex !important;
+		justify-content: space-between !important;
 	}
 
 	details#options section.aligned > div > div {
-		margin-left: auto;
-		order: 1;
+		margin-left: auto !important;
+		order: 1 !important;
 	}
 
 	section#usw-data {
-		display: flex;
-		flex-direction: column;
+		display: flex !important;
+		flex-direction: column !important;
 	}
 
 	section#usw-data > div {
@@ -147,13 +149,13 @@
 	}
 
 	section#usw-data > div > input {
-		width: 50%;
+		width: 50% !important;
 	}
 
 	#header-resizer {
-		opacity: 0.25;
-		color: var(--comment);
-		box-shadow: none;
+		opacity: 0.25 !important;
+		color: var(--comment) !important;
+		box-shadow: none !important;
 	}
 
 	#header-resizer:active {
@@ -166,17 +168,17 @@
 	}
 
 	div.section > div.CodeMirror {
-		margin: 8px 0;
-		border-radius: 4px
+		margin: 8px 0 !important;
+		border-radius: 4px !important;
 	}
 
 	div.resize-grip,
 	div.resize-grip::after {
-		color: var(--currentLine)
+		color: var(--currentLine) !important;
 	}
 
 	div.CodeMirror-gutter-background {
-		background-color: var(--currentLine);
+		background-color: var(--currentLine) !important;
 	}
 
 	.CodeMirror-linenumber {
@@ -194,15 +196,15 @@
 
 	/* ------------------------------------------------------ Mangage Page */
 	#manage-settings {
-		padding-right: 4px;
+		padding: 0 4px !important;
 	}
 
 	#manage-settings .filter-selection .select-wrapper {
-		left: 28px;
+		left: 28px !important;
 	}
 
 	#manage-settings .filter-selection {
-		margin-bottom: 4px;
+		margin-bottom: 4px !important;
 	}
 
 	#manage-settings #search-wrapper input {
@@ -211,12 +213,27 @@
 
 	#manage-settings #search-wrapper select {
 		border-radius: 0 4px 4px 0 !important;
-		margin-left: 2px;
+		margin-left: 2px !important;
+	}
+
+	#manage-settings #manage-text {
+		margin-top: 4px !important;
+		display: flex !important;
+		flex-direction: column !important;
+		row-gap: 4px !important;
+	}
+
+	#manage-settings #manage-text span::after {
+		content: ""
+	}
+
+	#message-box #message-box-contents {
+		border-color: transparent !important;
 	}
 
 	#message-box #message-box-contents section[data-prio] header {
 		background-color: var(--purple);
-		color: var(--bg);
+		color: var(--bg) !important;
 	}
 
 	/* ------------------------------------------------------ Dialog, Modal */
@@ -224,22 +241,43 @@
 	div#help-popup,
 	body#stylus-options {
 		opacity: 0.95 !important;
-		border-radius: 8px;
+		border-radius: 8px !important;
 	}
 
 	#message-box-title,
 	#help-popup > div.title,
 	body#stylus-options header {
 		background-color: var(--currentLine);
-		border-radius: 8px 8px 0 0;
+		border-radius: 8px 8px 0 0 !important;
 	}
 
 	body#stylus-options {
-		border-color: transparent;
+		border-color: transparent !important;
 	}
 
 	body#stylus-options header {
-		border-bottom-color: transparent;
+		border-bottom-color: transparent !important;
+		min-width: 700px !important;
+	}
+
+	body#stylus-options div.block {
+		padding-top: 8px !important;
+		padding-bottom: 8px !important;
+	}
+
+	body#stylus-options div.items {
+		display: flex !important;
+		flex-direction: column !important;
+		row-gap: 8px !important;
+	}
+
+	body#stylus-options div.items label span:nth-child(2):not(:has(+ input)),
+	body#stylus-options div.items label input:nth-child(3) {
+		margin-left: auto !important;
+	}
+
+	body#stylus-options div.items span:not(.sync-status) {
+		order: 0 !important;
 	}
 
 	body#stylus-options div.actions button.connect {
@@ -252,23 +290,23 @@
 	}
 
 	body#stylus-options footer {
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 8px 8px !important;
 	}
 
 	#message-box-buttons {
-		background-color: var(--currentLine);
-		border-radius: 0 0 8px 8px;
+		background-color: var(--bg);
+		border-radius: 0 0 8px 8px !important;
 	}
 
 	div#search-replace-dialog {
-		padding-top: .75em;
+		padding-top: .75em !important;
 		;
-		border-radius: 0 0 8px 8px;
-		border-color: transparent;
+		border-radius: 0 0 8px 8px !important;
+		border-color: transparent !important;
 	}
 
 	div#search-replace-dialog > div {
-		padding-left: .75em;
+		padding-left: .75em !important;
 	}
 
 	#search-replace-dialog a:hover {
@@ -276,11 +314,11 @@
 	}
 
 	#search-replace-dialog [data-action="case"][data-enabled]::after {
-		border-color: var(--cyan);
+		border-color: var(--cyan) !important;
 	}
 
 	div#search-replace-dialog div[data-type="status"] {
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 8px 8px !important;
 	}
 
 	div#search-replace-dialog textarea {
@@ -320,33 +358,41 @@
 	}
 
 	label:has(:is(input, select):hover) {
-		color: var(--orange);
+		color: var(--orange) !important;
 	}
 
 	input[type="radio"]:checked::after {
-		background-color: var(--orange);
+		background-color: var(--orange) !important;
 	}
 
 	input.slider::after {
-		box-shadow: none;
-		border-color: var(--currentLine);
-		background-color: var(--bg)
+		box-shadow: none !important;
+		background-color: var(--cyan) !important;
+		border-color: var(--currentLine) !important;
 	}
 
 	input.slider:checked::after {
-		border-color: transparent;
+		border-color: transparent !important;
 	}
 
 	button {
-		background-image: unset;
+		background-image: unset !important;
 	}
 
 	button.install:hover {
 		color: var(--cyan) !important;
 	}
 
-	button#save-button {
+	button#save-button,
+	button#usw-publish-style,
+	button#file-all-styles {
 		border-radius: 4px 0 0 4px !important;
+	}
+
+	button#usw-disconnect,
+	button.split-btn-pedal {
+		border-radius: 0 4px 4px 0 !important;
+		margin-left: 1px !important;
 	}
 
 	button#save-button:not([disabled]) {
@@ -362,11 +408,12 @@
 	button#save-button + button.split-btn-pedal {
 		background-image: unset !important;
 		border-radius: 0 4px 4px 0 !important;
+		margin-left: 1px !important;
+		border-color: transparent !important;
 	}
 
-	button#save-button + button.split-btn-pedal:hover {
+	button#save-button:not([disabled]) + button.split-btn-pedal:hover {
 		color: var(--currentLine) !important;
-		border-color: transparent !important;
 	}
 
 	button#save-button:not([disabled]) + button.split-btn-pedal {
@@ -374,13 +421,23 @@
 	}
 
 	button[data-cmd="close"],
-	button#manage {
+	button#manage,
+	#message-box-buttons button:last-child,
+	button.cancel,
+	button#reset {
 		color: var(--red) !important;
 	}
 
 	button[data-cmd="close"]:hover,
-	button#manage:hover {
+	button#manage:hover,
+	#message-box-buttons button:last-child:hover,
+	button.cancel:hover,
+	button#reset:hover {
 		border-color: var(--red) !important;
+	}
+
+	body#stylus-manage summary h2 {
+		vertical-align: sub !important;
 	}
 
 	details#publish summary::marker,
@@ -401,8 +458,8 @@
 	}
 
 	#toc li:hover {
-		background-color: var(--currentLine);
-		border-radius: 4px;
+		background-color: var(--currentLine) !important;
+		border-radius: 4px !important;
 	}
 
 	/* Icons */
