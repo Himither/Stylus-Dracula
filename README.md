@@ -12,6 +12,9 @@ You need to activate the extensions own Dracula theme to ensure the editor itsel
 
 ## Preview
 
+### Edit
 ![Main preview image](/preview/edit.png)
+### Manage
 ![Main preview image](/preview/manage.png)
+### Option
 ![Main preview image](/preview/option.png)
