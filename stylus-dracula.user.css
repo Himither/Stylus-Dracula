@@ -256,6 +256,10 @@ regexp("^\\w+-extension://.+") {
 		border-radius: 8px 8px 0 0 !important;
 	}
 
+	div#message-box.danger > div > div#message-box-title {
+		background-color: var(--red) !important;
+	}
+
 	body#stylus-options {
 		border-color: transparent !important;
 	}
@@ -352,12 +356,10 @@ regexp("^\\w+-extension://.+") {
 		box-shadow: none !important;
 	}
 
+	/* Input */
 	input:not([disabled]):focus,
-	button:not([disabled]):focus,
 	select:not([disabled]):focus {
 		box-shadow: none !important;
-		outline: none !important;
-		border: 1px solid var(--comment) !important;
 	}
 
 	input[type=range] {
@@ -383,6 +385,7 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent !important;
 	}
 
+	/* Button */
 	button {
 		background-image: unset !important;
 	}
@@ -428,22 +431,28 @@ regexp("^\\w+-extension://.+") {
 		background-color: var(--purple) !important;
 	}
 
-	button[data-cmd="close"],
-	button#manage,
-	#message-box-buttons button:last-child,
-	button.cancel,
-	button#reset {
+	/* Reset & Cancel Button */
+	button[data-cmd="default"]:not([disabled]),
+	button.reset:not([disabled]),
+	button#reset:not([disabled]) {
 		color: var(--red) !important;
 	}
 
-	button[data-cmd="close"]:hover,
-	button#manage:hover,
-	#message-box-buttons button:last-child:hover,
-	button.cancel:hover,
-	button#reset:hover {
+	button[data-cmd="default"]:not([disabled]):hover,
+	button.reset:not([disabled]):hover,
+	button#reset:not([disabled]):hover {
 		border-color: var(--red) !important;
 	}
 
+	div#message-box.danger button[data-focused-via-click] {
+		background-color: var(--red) !important;
+	}
+
+	div#message-box.danger button[data-focused-via-click]:hover {
+		border-color: white !important;
+	}
+
+	/* Summary*/
 	body#stylus-manage summary h2 {
 		vertical-align: sub !important;
 	}
@@ -470,19 +479,13 @@ regexp("^\\w+-extension://.+") {
 		border-radius: 4px !important;
 	}
 
-	/* Icons */
+	/* ------------------------------------------------------ Icons */
 	i {
 		color: var(--fg) !important;
 	}
 
-	i:hover,
-	i:focus {
+	i:hover {
 		color: var(--pink) !important;
-	}
-
-	i:focus {
-		box-shadow: none !important;
-		outline: none !important;
 	}
 
 	i.i-close,
