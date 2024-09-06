@@ -8,13 +8,19 @@ Improved Dracula theme covering the whole extension instead of just the editor
 
 ## Note
 
-You need to activate the extensions own Dracula theme to ensure the editor itself is themed properly
+> [!WARNING]
+> You need to activate the extensions own Dracula theme to ensure the editor itself is themed properly, too.
 
 ## Preview
 
-### Edit
-![Main preview image](/preview/edit.png)
-### Manage
-![Main preview image](/preview/manage.png)
-### Option
-![Main preview image](/preview/option.png)
+<p align="center">
+  <img alt="Singleview - Darker" src="preview/install.webp" width="45%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Singleview - La+ Darknesss" src="preview/edit.webp" width="45%">
+</p>
+
+<p align="center">
+  <img alt="Singleview - Darker" src="preview/manage.webp" width="45%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Singleview - La+ Darknesss" src="preview/option.webp" width="45%">
+</p>
