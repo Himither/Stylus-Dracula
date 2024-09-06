@@ -77,31 +77,31 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Extension Popup */
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div > button:has(+ button) {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div > button:has(+ button) {
 		border-radius: 4px 0 0 4px !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div > button + button {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div > button + button {
 		border-radius: 0 4px 4px 0 !important;
 		margin-left: 1px !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div {
 		box-shadow: none !important;
 		background-color: var(--bg) !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div)) {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div:not(:has(div)) {
 		border-color: var(--white) !important;
 		border-radius: 4px !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) div:not(:has(div, button)) *:hover {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div:not(:has(div, button)) *:hover {
 		background-color: var(--currentLine) !important;
 		color: var(--cyan) !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options)) *:not(label, a) {
+	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) *:not(label, a) {
 		color: var(--fg) !important;
 	}
 
@@ -236,6 +236,11 @@ regexp("^\\w+-extension://.+") {
 		color: var(--bg) !important;
 	}
 
+	/* ------------------------------------------------------ Install Page */
+	h2.install-show {
+		color: var(--pink) !important;
+	}
+
 	/* ------------------------------------------------------ Dialog, Modal */
 	#message-box > div,
 	div#help-popup,
@@ -348,8 +353,11 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	input:not([disabled]):focus,
+	button:not([disabled]):focus,
 	select:not([disabled]):focus {
 		box-shadow: none !important;
+		outline: none !important;
+		border: 1px solid var(--comment) !important;
 	}
 
 	input[type=range] {
@@ -467,8 +475,14 @@ regexp("^\\w+-extension://.+") {
 		color: var(--fg) !important;
 	}
 
-	i:hover {
+	i:hover,
+	i:focus {
 		color: var(--pink) !important;
+	}
+
+	i:focus {
+		box-shadow: none !important;
+		outline: none !important;
 	}
 
 	i.i-close,
