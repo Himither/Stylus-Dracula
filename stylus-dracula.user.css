@@ -1,14 +1,17 @@
 /* ==UserStyle==
 
-@name				Stylus Dracula
-@namespace			https://github.com/Himither
-@homepageURL			https://github.com/Himither/Stylus-Dracula
-@supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.9
-@updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
-@description			Improved dracula theme covering the whole extension instead of just the editor
-@author				Himither
-@license			MIT
+@name			Stylus Dracula
+@namespace		https://github.com/Himither
+@homepageURL		https://github.com/Himither/Stylus-Dracula
+@supportURL		https://github.com/Himither/Stylus-Dracula/issues
+@version		1.0.10
+@updateURL		https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
+@description		Improved dracula theme covering the whole extension instead of just the editor
+@author			Himither
+@license		MIT
+@preprocessor		stylus
+
+@var checkbox		popup-scrollbar		"Hide Pop-up scrollbar"		0
 
 ==/UserStyle== */
 @-moz-document regexp("chrome-extension://.*"),
@@ -30,13 +33,13 @@ regexp("^\\w+-extension://.+") {
 		--fg: var(--foreground);
 		--bg: var(--background);
 
-		/* Overwriting root colors, because I dunno how to look at the HTML from Stylus Popup */
+		/* Turns out you can right-click inspect extension popups in Google Chrome, unlike in Firefox... */
 		--cmin: var(--orange); /* Hovered labels belonging to active styles */
 		--c00: var(--fg); /* ??? */
 		--c10: var(--fg); /* ??? */
 		--c20: var(--fg); /* ??? */
 		--c30: var(--orange); /* Hovered labels belonging to unactive styles */
-		--c40: var(--red); /* ??? */
+		--c40: var(--fg); /* Icons i:hover, .i.info and .i-config */
 		--c45: var(--red); /* ??? */
 		--c50: var(--currentLine); /* Disabled label and find styles -> style borders */
 		--c60: var(--currentLine); /* Disabled styles, their labels and options border */
@@ -52,9 +55,9 @@ regexp("^\\w+-extension://.+") {
 		--c99: var(--red); /* ??? */
 		--c100: var(--red); /* ??? */
 		--cmax: var(--red); /* ??? */
-		--50: var(--purple); /* ??? */
+		--c50: transparent; /* Border around search results */
 		--accent-1: var(--green); /* Checkbox mark for user css on manage page */
-		--accent-2: var(--green); /* Checked slider checkbox know/thumb */
+		--accent-2: var(--green); /* Checked slider checkbox know thumb */
 		--accent-3: var(--red); /* ??? */
 		--gold1: var(--purple); /* ??? */
 	}
@@ -62,51 +65,87 @@ regexp("^\\w+-extension://.+") {
 	/* ------------------------------------------------------ General */
 	*::selection {
 		color: var(--bg);
-		background-color: var(--pink) !important;
+		background-color: var(--pink);
 	}
 
-	/* ------------------------------------------------------ Extension Popup */
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div > button:has(+ button) {
-		border-radius: 4px 0 0 4px !important;
+	.split-btn-menu {
+		border-radius: 4px;
+		border-color: var(--purple);
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div > button + button {
-		border-radius: 0 4px 4px 0 !important;
+	.split-btn-menu a:hover {
+		background-color: transparent;
+	}
+
+	#stylus :is(a, button) {
+		cursor: pointer;
+	}
+
+	#stylus .split-btn > button:has(+ button) {
+		border-radius: 4px 0 0 4px;
+	}
+
+	#stylus .split-btn > button + button {
+		border-radius: 0 4px 4px 0;
+	}
+
+	/* Needs to be important */
+	#stylus .split-btn-pedal {
 		margin-left: 1px !important;
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div {
-		box-shadow: none !important;
-		background-color: var(--bg) !important;
+	/* ------------------------------------------------------ Extension Popup */
+	if popup-scrollbar {
+		#stylus:has(#stylus-popup) {
+			scrollbar-width: none;
+		}
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div:not(:has(div)) {
-		border-color: var(--white) !important;
-		border-radius: 4px !important;
+	#stylus-popup {
+		min-width: 599px !important; /* This is the max length for two displaying two columns  */
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) div:not(:has(div, button)) *:hover {
-		background-color: var(--currentLine) !important;
-		color: var(--cyan) !important;
+
+	#stylus-popup #options-btn:hover svg {
+		color: var(--pink);
 	}
 
-	body:not(:is(#stylus-edit, #stylus-manage, #stylus-options, #stylus-install-usercss)) *:not(label, a) {
-		color: var(--fg) !important;
+	#stylus-popup div {
+		box-shadow: none;
+		background-color: var(--bg);
+	}
+
+	#stylus-popup #search-results {
+		background: none;
+	}
+
+	#stylus-popup .search-result {
+		background-color: var(--currentLine);
+	}
+
+	#stylus-popup .search-result:hover {
+		border-color: var(--comment);
+	}
+
+	.search-result-meta {
+		justify-content: space-evenly;
+	}
+	
+	#stylus-popup :is(.search-result-info, .search-result-screenshot) {
+		border-radius: 4px;
+	}
+	
+	#stylus-popup .search-result-meta::before {
+		border-radius: 0 0 4px 4px;
+	}
+
+	#stylus-popup .search-result [data-type] {
+		background-color: transparent;
 	}
 
 	/* ------------------------------------------------------ Edit Page */
 	div#header {
 		box-shadow: none !important;
-	}
-
-	div.split-btn-menu {
-		border-radius: 4px !important;
-		border-color: var(--fg) !important;
-	}
-
-	div.split-btn-menu a:hover {
-		color: var(--cyan) !important;
-		background-color: var(--currentLine) !important;
 	}
 
 	details#options section.aligned {
@@ -185,44 +224,47 @@ regexp("^\\w+-extension://.+") {
 
 	/* ------------------------------------------------------ Mangage Page */
 	#manage-settings {
-		padding: 0 4px !important;
-	}
-
-	#manage-settings .filter-selection .select-wrapper {
-		left: 28px !important;
+		padding: 0 4px;
 	}
 
 	#manage-settings .filter-selection {
-		margin-bottom: 4px !important;
+		margin-bottom: 4px;
+	}
+
+	#manage-settings .filter-selection:hover,
+	#manage-settings #filters label {
+		background-color: transparent;
+	}
+
+
+	#manage-settings .filter-selection .select-wrapper {
+		left: 28px;
 	}
 
 	#manage-settings #search-wrapper input {
-		border-radius: 4px 0 0 4px !important;
+		border-radius: 4px 0 0 4px;
 	}
 
 	#manage-settings #search-wrapper select {
-		border-radius: 0 4px 4px 0 !important;
-		margin-left: 2px !important;
+		border-radius: 0 4px 4px 0;
+		margin-left: 2px;
 	}
 
 	#manage-settings #manage-text {
-		margin-top: 4px !important;
-		display: flex !important;
-		flex-direction: column !important;
-		row-gap: 4px !important;
+		margin-top: 4px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 4px;
 	}
 
 	#manage-settings #manage-text span::after {
-		content: ""
+		content: "";
 	}
 
-	#message-box #message-box-contents {
-		border-color: transparent !important;
-	}
-
+	/* Style injection order bottom text */
 	#message-box #message-box-contents section[data-prio] header {
 		background-color: var(--purple);
-		color: var(--bg) !important;
+		color: var(--bg);
 	}
 
 	/* ------------------------------------------------------ Install Page */
@@ -298,7 +340,6 @@ regexp("^\\w+-extension://.+") {
 
 	div#search-replace-dialog {
 		padding-top: .75em !important;
-		;
 		border-radius: 0 0 8px 8px !important;
 		border-color: transparent !important;
 	}
@@ -329,20 +370,21 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Buttons, Inputs, Textareas, Selects, Summaries */
-	input,
-	button,
-	select,
-	textarea {
-		background-color: var(--currentLine) !important;
-		border-color: transparent !important;
-		border-radius: 4px !important;
+	#stylus input,
+	#stylus button,
+	#stylus select,
+	#stylus textarea {
+		background-color: var(--currentLine);
+		border-color: transparent;
+		border-radius: 4px;
 	}
 
-	input:not([disabled]):hover,
-	button:not([disabled]):hover,
-	select:not([disabled]):hover {
-		border-color: var(--comment) !important;
-		box-shadow: none !important;
+	#stylus input:not([disabled]):hover,
+	#stylus button:not([disabled]):hover,
+	#stylus select:not([disabled]):hover {
+		background-color: var(--currentLine);
+		border-color: var(--comment);
+		box-shadow: none;
 	}
 
 	/* Input */
@@ -409,21 +451,10 @@ regexp("^\\w+-extension://.+") {
 		color: var(--cyan) !important;
 	}
 
-	button#save-button,
-	button#usw-publish-style,
-	button#file-all-styles {
-		border-radius: 4px 0 0 4px !important;
-	}
-
-	button#usw-disconnect,
-	button.split-btn-pedal {
-		border-radius: 0 4px 4px 0 !important;
-		margin-left: 1px !important;
-	}
 
 	button#save-button:not([disabled]) {
-		background-image: unset;
-		background-color: var(--purple) !important;
+		background-color: var(--purple);
+		border-color: transparent;
 	}
 
 	button#save-button:not([disabled]):hover {
@@ -431,19 +462,15 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent !important;
 	}
 
-	button#save-button + button.split-btn-pedal {
-		background-image: unset !important;
-		border-radius: 0 4px 4px 0 !important;
-		margin-left: 1px !important;
-		border-color: transparent !important;
-	}
-
-	button#save-button:not([disabled]) + button.split-btn-pedal:hover {
-		color: var(--currentLine) !important;
-	}
-
 	button#save-button:not([disabled]) + button.split-btn-pedal {
-		background-color: var(--purple) !important;
+		background-color: var(--purple);
+
+
+		button#save-button:not([disabled]) + button.split-btn-pedal:hover {
+			color: var(--currentLine);
+		}
+
+		border-color: transparent;
 	}
 
 	/* Reset, Cancel & Delete Buttons */
@@ -486,42 +513,54 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Links */
-	a,
-	#toc li {
-		color: var(--cyan) !important;
-		text-decoration: none !important;
+	#stylus a,
+	#stylus #toc li {
+		color: var(--cyan);
+		text-decoration: none;
 	}
 
-	a:not(:has(i)):hover,
-	#toc li:hover {
-		color: var(--cyan) !important;
-		text-decoration: underline !important
+	#stylus a:not(:has(i)):not(.injection-order-toggle):hover,
+	#stylus #toc li:hover {
+		color: var(--cyan);
+		text-decoration: underline;
 	}
 
-	#toc li:hover {
-		background-color: var(--currentLine) !important;
-		border-radius: 4px !important;
+	#stylus #toc li:hover {
+		background-color: var(--currentLine);
+		border-radius: 4px;
 	}
 
 	/* ------------------------------------------------------ Icons */
-	i {
-		color: var(--fg) !important;
+	#stylus i,
+	#stylus #usercss-wiki i.i-external {
+		color: var(--fg);
 	}
 
-	i:hover {
-		color: var(--pink) !important;
+	#stylus i:hover:not(.i-usercss),
+	#stylus a:hover i,
+	#stylus a#usercss-wiki:hover i.i-external {
+		color: var(--pink);
 	}
 
-	i.i-close,
-	a.remove-applies-to:hover i.i-minus {
-		color: var(--red) !important;
+	#stylus a#usercss-wiki:hover i {
+		filter: unset;
 	}
 
-	a.add-applies-to:hover i.i-plus {
-		color: var(--green) !important;
+	#stylus i.i-close,
+	#stylus i.i-close:hover,
+	#stylus a.remove-applies-to:hover i.i-minus {
+		color: var(--red);
 	}
 
-	a.injection-order-toggle:hover::after {
-		color: var(--yellow) !important;
+	#stylus a.add-applies-to:hover i.i-plus {
+		color: var(--green);
+	}
+
+	#stylus a.injection-order-toggle::after {
+		color: var(--yellow);
+	}
+
+	#stylus a.injection-order-toggle:hover::after {
+		color: var(--yellow);
 	}
 }
