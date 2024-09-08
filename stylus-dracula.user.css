@@ -4,7 +4,7 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.6
+@version			1.0.7
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
@@ -29,45 +29,34 @@ regexp("^\\w+-extension://.+") {
 		--yellow: #F1FA8C;
 		--fg: var(--foreground);
 		--bg: var(--background);
-		/* Overwriting root colors, because I dunno how to look at the CSS from Stylus */
-		/* Color of hovered labels belonging to active styles */
-		--cmin: var(--orange);
-		--c00: var(--fg);
-		--c10: var(--fg);
-		--c20: var(--fg);
-		--c30: var(--orange);
-		/* Color of hovered labels belonging to unactive styles */
-		--c40: var(--green);
-		--c45: var(--green);
-		--c50: var(--currentLine);
-		/* Color of disabled label and find styles -> style borders */
-		--c60: var(--currentLine);
-		/* Color disabled styles, their labels and options border */
-		--c65: var(--foreground);
-		/* Color of style order number in the popup */
-		--c70: var(--bg);
-		/* Color of background gradient for popup -> Find Styles */
-		--c75: var(--currentLine);
-		/* Color of scrollbar */
-		--c80: var(--currentLine);
-		/* Color of dotted borders */
-		--c85: var(--bg);
-		/* Color of some horizontal borders and gradient atbottom of find styles*/
-		--c90: var(--bg);
-		/* Color of options footer */
-		--c95: var(--bg);
-		--c97: var(--bg);
-		/* Color of #header (sidemenu of editor) background */
-		--c98: var(--bg);
-		/* Color of editor background */
-		--c99: var(--bg);
-		--c100: var(--bg);
-		--cmax: var(--bg);
-		--50: var(--purple);
-		--accent-1: var(--red);
-		--accent-2: var(--cyan);
-		--accent-3: var(--red);
-		--gold1: var(--purple);
+
+		/* Overwriting root colors, because I dunno how to look at the HTML from Stylus Popup */
+		--cmin: var(--orange); /* Hovered labels belonging to active styles */
+		--c00: var(--fg); /* ??? */
+		--c10: var(--fg); /* ??? */
+		--c20: var(--fg); /* ??? */
+		--c30: var(--orange); /* Hovered labels belonging to unactive styles */
+		--c40: var(--red); /* ??? */
+		--c45: var(--red); /* ??? */
+		--c50: var(--currentLine); /* Disabled label and find styles -> style borders */
+		--c60: var(--currentLine); /* Disabled styles, their labels and options border */
+		--c65: var(--foreground); /* Style order number in the popup */
+		--c70: var(--bg); /* Color of background gradient for popup -> Find Styles */
+		--c75: var(--currentLine); /* Scrollbar & manage page section hover dotted underline */
+		--c80: var(--currentLine); /* Dotted borders */
+		--c85: var(--bg); /* Some horizontal borders and gradient atbottom of find styles*/
+		--c90: var(--bg); /* Options footer */
+		--c95: var(--currentLine); /* Find styles top gradient and unhovered style footer */
+		--c97: var(--bg); /* #header (sidemenu of editor) background */
+		--c98: var(--bg); /* Editor background */
+		--c99: var(--red); /* ??? */
+		--c100: var(--red); /* ??? */
+		--cmax: var(--red); /* ??? */
+		--50: var(--purple); /* ??? */
+		--accent-1: var(--red); /* ??? */
+		--accent-2: var(--cyan); /* ??? */
+		--accent-3: var(--red); /* ??? */
+		--gold1: var(--purple); /* ??? */
 	}
 
 	/* ------------------------------------------------------ General */
