@@ -4,7 +4,7 @@
 
 Improved Dracula theme covering the whole extension instead of just the editor
 
-[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://github.com/Himither/Stylus-Dracula/blob/main/stylus-dracula.user.css)
+[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css)
 
 ## Note
 
