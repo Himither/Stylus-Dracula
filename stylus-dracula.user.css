@@ -4,7 +4,7 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.8
+@version			1.0.9
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
@@ -362,14 +362,14 @@ regexp("^\\w+-extension://.+") {
 		height: 8px !important;
 		border-color: transparent !important;
 	}
-	
+
 	input[type="range"]:hover {
 		border-color: transparent !important;
 	}
 
 	input[type="range"]::-webkit-slider-thumb,
 	input[type="range"]::-moz-range-thumb {
-		cursor: pointer;
+		cursor: e-resize;
 		box-sizing: border-box;
 		width: 12px;
 		height: 12px;
