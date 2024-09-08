@@ -4,7 +4,7 @@
 @namespace			https://github.com/Himither
 @homepageURL			https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.7
+@version			1.0.8
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description			Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
@@ -53,8 +53,8 @@ regexp("^\\w+-extension://.+") {
 		--c100: var(--red); /* ??? */
 		--cmax: var(--red); /* ??? */
 		--50: var(--purple); /* ??? */
-		--accent-1: var(--red); /* ??? */
-		--accent-2: var(--cyan); /* ??? */
+		--accent-1: var(--green); /* Checkbox mark for user css on manage page */
+		--accent-2: var(--green); /* Checked slider checkbox know/thumb */
 		--accent-3: var(--red); /* ??? */
 		--gold1: var(--purple); /* ??? */
 	}
@@ -328,7 +328,7 @@ regexp("^\\w+-extension://.+") {
 		background-color: var(--bg) !important;
 	}
 
-	/* ------------------------------------------------------ Button, Input, Textarea, Select, Summary */
+	/* ------------------------------------------------------ Buttons, Inputs, Textareas, Selects, Summaries */
 	input,
 	button,
 	select,
@@ -351,9 +351,30 @@ regexp("^\\w+-extension://.+") {
 		box-shadow: none !important;
 	}
 
-	input[type=range] {
+	:is([type="checkbox"], [type="radio"]):not(:checked):not(.slider) {
+		background-color: var(--bg) !important;
+		border-color: var(--currentLine) !important;
+	}
+
+	input[type="range"] {
+		cursor: pointer;
 		appearance: none;
-		height: 6px !important;
+		height: 8px !important;
+		border-color: transparent !important;
+	}
+	
+	input[type="range"]:hover {
+		border-color: transparent !important;
+	}
+
+	input[type="range"]::-webkit-slider-thumb,
+	input[type="range"]::-moz-range-thumb {
+		cursor: pointer;
+		box-sizing: border-box;
+		width: 12px;
+		height: 12px;
+		background-color: var(--purple);
+		border-color: var(--purple);
 	}
 
 	label:has(:is(input, select):hover) {
@@ -364,9 +385,14 @@ regexp("^\\w+-extension://.+") {
 		background-color: var(--orange) !important;
 	}
 
+	input.slider {
+		cursor: pointer;
+		height: 8px !important;
+		box-shadow: none;
+	}
+
 	input.slider::after {
-		box-shadow: none !important;
-		background-color: var(--cyan) !important;
+		box-shadow: none !important; /* Not !important to keep using accent-2 :checked */
 		border-color: var(--currentLine) !important;
 	}
 
@@ -374,7 +400,7 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent !important;
 	}
 
-	/* Button */
+	/* Buttons */
 	button {
 		background-image: unset !important;
 	}
@@ -420,16 +446,18 @@ regexp("^\\w+-extension://.+") {
 		background-color: var(--purple) !important;
 	}
 
-	/* Reset & Cancel Button */
+	/* Reset, Cancel & Delete Buttons */
 	button[data-cmd="default"]:not([disabled]),
 	button.reset:not([disabled]),
-	button#reset:not([disabled]) {
+	button#reset:not([disabled]),
+	button.delete:not([disabled]) {
 		color: var(--red) !important;
 	}
 
 	button[data-cmd="default"]:not([disabled]):hover,
 	button.reset:not([disabled]):hover,
-	button#reset:not([disabled]):hover {
+	button#reset:not([disabled]):hover,
+	button.delete:not([disabled]):hover {
 		border-color: var(--red) !important;
 	}
 
@@ -441,7 +469,7 @@ regexp("^\\w+-extension://.+") {
 		border-color: white !important;
 	}
 
-	/* Summary*/
+	/* Summaries*/
 	body#stylus-manage summary h2 {
 		vertical-align: sub !important;
 	}
