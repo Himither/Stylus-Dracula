@@ -4,7 +4,7 @@
 @namespace		https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
 @supportURL		https://github.com/Himither/Stylus-Dracula/issues
-@version		1.0.12
+@version		1.0.13
 @updateURL		https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description		Improved dracula theme covering the whole extension instead of just the editor
 @author			Himither
@@ -532,7 +532,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus button.reset:not([disabled]),
 	#stylus button#reset:not([disabled]),
 	#stylus button.delete:not([disabled]),
-	#stylus-manage #message-box #message-box-buttons:has(label + button) button:last-child {
+	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
 
@@ -540,7 +540,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus button.reset:not([disabled]):hover,
 	#stylus button#reset:not([disabled]):hover,
 	#stylus button.delete:not([disabled]):hover,
-	#stylus-manage #message-box #message-box-buttons:has(label + button) button:last-child:hover {
+	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child:hover {
 		border-color: var(--red) !important;
 	}
 
