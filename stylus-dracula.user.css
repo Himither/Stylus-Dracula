@@ -4,7 +4,7 @@
 @namespace		https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
 @supportURL		https://github.com/Himither/Stylus-Dracula/issues
-@version		1.0.13
+@version		1.0.14
 @updateURL		https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description		Improved dracula theme covering the whole extension instead of just the editor
 @author			Himither
@@ -89,7 +89,8 @@ regexp("^\\w+-extension://.+") {
 
 	.split-btn-menu {
 		border-radius: 4px;
-		border-color: var(--purple);
+		border-color: var(--currentLine);
+		box-shadow: none;
 	}
 
 	.split-btn-menu a:hover {
@@ -127,6 +128,23 @@ regexp("^\\w+-extension://.+") {
 	/* ------------------------------------------------------ Extension Popup */
 	#stylus-popup {
 		min-width: 599px !important; /* This is the max length for two displaying two columns  */
+	}
+		
+	#stylus-popup #message-box.config-dialog > div {
+		opacity: 1;
+		box-shadow: none;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		max-height: 100%;
+	}
+	
+	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
+		border-radius: 0;
+	}
+	
+	#stylus-popup #options-btn svg {
+		height: 16px;
 	}
 
 	#stylus-popup .search-result {
@@ -169,6 +187,14 @@ regexp("^\\w+-extension://.+") {
 
 	#stylus-popup .search-result [data-type] {
 		background-color: transparent;
+	}
+	
+	#stylus-popup #menu.delete > div {
+		border-color: var(--red);
+	}
+	
+	#stylus-popup #menu.delete header {
+		background: var(--red);
 	}
 
 	/* ------------------------------------------------------ Edit Page */
@@ -528,18 +554,16 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* Reset, Cancel & Delete Buttons */
-	#stylus button[data-cmd="default"]:not([disabled]),
-	#stylus button.reset:not([disabled]),
-	#stylus button#reset:not([disabled]),
-	#stylus button.delete:not([disabled]),
+	#stylus button:is(.delete, #reset, .reset, [data-cmd="default"], [data-cmd="delete"]):not([disabled]),
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
+	
+	#stylus #stylus-popup button[data-cmd="delete"] {
+		border-color: transparent;
+	}
 
-	#stylus button[data-cmd="default"]:not([disabled]):hover,
-	#stylus button.reset:not([disabled]):hover,
-	#stylus button#reset:not([disabled]):hover,
-	#stylus button.delete:not([disabled]):hover,
+	#stylus button:is(.delete, #reset, .reset, [data-cmd="default"], [data-cmd="delete"]):not([disabled]):hover,
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child:hover {
 		border-color: var(--red) !important;
 	}
