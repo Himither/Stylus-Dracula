@@ -4,7 +4,7 @@
 @namespace		https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
 @supportURL		https://github.com/Himither/Stylus-Dracula/issues
-@version		1.0.14
+@version		1.0.15
 @updateURL		https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description		Improved dracula theme covering the whole extension instead of just the editor
 @author			Himither
@@ -126,10 +126,15 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Extension Popup */
-	#stylus-popup {
-		min-width: 599px !important; /* This is the max length for two displaying two columns  */
+	#stylus:has(#message-box) {
+		height: 600px; /* 600px is the max height, this only applies when open the config of a style*/
 	}
-		
+
+	#stylus-popup {
+		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
+		max-width: unset !important;
+	}
+
 	#stylus-popup #message-box.config-dialog > div {
 		opacity: 1;
 		box-shadow: none;
@@ -138,11 +143,11 @@ regexp("^\\w+-extension://.+") {
 		max-width: 100%;
 		max-height: 100%;
 	}
-	
+
 	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
 		border-radius: 0;
 	}
-	
+
 	#stylus-popup #options-btn svg {
 		height: 16px;
 	}
@@ -188,11 +193,11 @@ regexp("^\\w+-extension://.+") {
 	#stylus-popup .search-result [data-type] {
 		background-color: transparent;
 	}
-	
+
 	#stylus-popup #menu.delete > div {
 		border-color: var(--red);
 	}
-	
+
 	#stylus-popup #menu.delete header {
 		background: var(--red);
 	}
@@ -558,7 +563,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
-	
+
 	#stylus #stylus-popup button[data-cmd="delete"] {
 		border-color: transparent;
 	}
