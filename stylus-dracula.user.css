@@ -127,10 +127,17 @@ regexp("^\\w+-extension://.+") {
 		height: 600px; /* 600px is the max height, this only applies when open the config of a style*/
 	}
 
+	#stylus:has(#message-box) {
+		height: 600px; /* 600px is the max height, this only applies when open the config of a style*/
+	}
+
 	#stylus-popup {
 		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
 		max-width: unset !important;
+		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
+		max-width: unset !important;
 	}
+
 
 	#stylus-popup #message-box.config-dialog > div {
 		opacity: 1;
@@ -141,9 +148,11 @@ regexp("^\\w+-extension://.+") {
 		max-height: 100%;
 	}
 
+
 	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
 		border-radius: 0;
 	}
+
 
 	#stylus-popup #options-btn svg {
 		height: 16px;
@@ -191,9 +200,11 @@ regexp("^\\w+-extension://.+") {
 		background-color: transparent;
 	}
 
+
 	#stylus-popup #menu.delete > div {
 		border-color: var(--red);
 	}
+
 
 	#stylus-popup #menu.delete header {
 		background: var(--red);
@@ -557,6 +568,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
+
 
 	#stylus #stylus-popup button[data-cmd="delete"] {
 		border-color: transparent;
