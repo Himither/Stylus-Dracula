@@ -5,11 +5,16 @@
 		"cmax",
 		"cmin",
 		"dracula",
+		"firacode",
+		"fugly",
 		"linenumber",
 		"Mangage",
 		"prio",
+		"scrollbars",
 		"sidemenu",
+		"Textareas",
 		"unactive",
+		"unhovered",
 		"usercss"
 	]
 }
