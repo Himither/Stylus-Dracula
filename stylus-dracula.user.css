@@ -4,7 +4,7 @@
 @namespace		https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
 @supportURL		https://github.com/Himither/Stylus-Dracula/issues
-@version		1.0.14
+@version		1.0.15
 @updateURL		https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description		Improved dracula theme covering the whole extension instead of just the editor
 @author			Himither
@@ -86,7 +86,6 @@ regexp("^\\w+-extension://.+") {
 		}
 	}
 
-
 	.split-btn-menu {
 		border-radius: 4px;
 		border-color: var(--currentLine);
@@ -97,8 +96,7 @@ regexp("^\\w+-extension://.+") {
 		background-color: transparent;
 	}
 
-	#stylus :is(a,
-	button) {
+	#stylus :is(a, button) {
 		cursor: pointer;
 	}
 
@@ -115,7 +113,6 @@ regexp("^\\w+-extension://.+") {
 		box-shadow: none;
 	}
 
-
 	#stylus #header-resizer {
 		opacity: 0.25;
 		color: var(--currentLine);
@@ -126,10 +123,17 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Extension Popup */
-	#stylus-popup {
-		min-width: 599px !important; /* This is the max length for two displaying two columns  */
+	#stylus:has(#message-box) {
+		height: 600px;
+		/* 600px is the max height, this only applies when open the config of a style*/
 	}
-		
+
+	#stylus-popup {
+		width: 800px !important;
+		/* 800px is the max width of the popup, !important to overwrite inline style  */
+		max-width: unset !important;
+	}
+
 	#stylus-popup #message-box.config-dialog > div {
 		opacity: 1;
 		box-shadow: none;
@@ -138,11 +142,11 @@ regexp("^\\w+-extension://.+") {
 		max-width: 100%;
 		max-height: 100%;
 	}
-	
+
 	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
 		border-radius: 0;
 	}
-	
+
 	#stylus-popup #options-btn svg {
 		height: 16px;
 	}
@@ -177,7 +181,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus-popup :is(.search-result-info,
-	#stylus-popup .search-result-screenshot) {
+		#stylus-popup .search-result-screenshot) {
 		border-radius: 4px;
 	}
 
@@ -188,11 +192,11 @@ regexp("^\\w+-extension://.+") {
 	#stylus-popup .search-result [data-type] {
 		background-color: transparent;
 	}
-	
+
 	#stylus-popup #menu.delete > div {
 		border-color: var(--red);
 	}
-	
+
 	#stylus-popup #menu.delete header {
 		background: var(--red);
 	}
@@ -230,10 +234,9 @@ regexp("^\\w+-extension://.+") {
 		width: 50%;
 	}
 
-
 	#stylus-edit div:is(.CodeMirror-active,
-	#stylus-edit .CodeMirror-focused,
-	#stylus-edit .search-target-editor) {
+		#stylus-edit .CodeMirror-focused,
+		#stylus-edit .search-target-editor) {
 		box-shadow: none;
 	}
 
@@ -293,7 +296,6 @@ regexp("^\\w+-extension://.+") {
 	#stylus-manage #filters label {
 		background-color: transparent;
 	}
-
 
 	#stylus-manage .filter-selection .select-wrapper {
 		left: 28px;
@@ -373,7 +375,7 @@ regexp("^\\w+-extension://.+") {
 		row-gap: 8px;
 	}
 
-	#stylus body#stylus-options div.items label span:nth-child(2):not(:has( + input)),
+	#stylus body#stylus-options div.items label span:nth-child(2):not(:has(+ input)),
 	#stylus body#stylus-options div.items label input:nth-child(3) {
 		margin-left: auto;
 	}
@@ -450,7 +452,6 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent;
 	}
 
-
 	#stylus input:not([disabled]):hover,
 	#stylus label input[type="checkbox"]:not([disabled]):hover,
 	#stylus select:not([disabled]):hover {
@@ -458,7 +459,6 @@ regexp("^\\w+-extension://.+") {
 		border-color: var(--comment) !important;
 		box-shadow: none;
 	}
-
 
 	#stylus button:not([disabled]):hover {
 		background-color: var(--currentLine);
@@ -473,7 +473,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus :is([type="checkbox"],
-	#stylus [type="radio"]):not(:checked):not(.slider) {
+		#stylus [type="radio"]):not(:checked):not(.slider) {
 		background-color: var(--bg);
 		border-color: var(--currentLine);
 	}
@@ -500,7 +500,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus label:has(:is(input,
-	#stylus select):hover) {
+			#stylus select):hover) {
 		color: var(--orange);
 	}
 
@@ -515,7 +515,8 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus input.slider::after {
-		box-shadow: none !important; /* Not !important to keep using accent-2 :checked */
+		box-shadow: none !important;
+		/* Not !important to keep using accent-2 :checked */
 		border-color: var(--currentLine);
 	}
 
@@ -525,13 +526,13 @@ regexp("^\\w+-extension://.+") {
 
 	/* Buttons */
 	#stylus button {
-		background-image: unset !important; /* No fugly gradients, needs to be important */
+		background-image: unset !important;
+		/* No fugly gradients, needs to be important */
 	}
 
 	#stylus button.install:hover {
 		color: var(--cyan);
 	}
-
 
 	#stylus button#save-button:not([disabled]) {
 		background-color: var(--purple);
@@ -558,7 +559,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
-	
+
 	#stylus #stylus-popup button[data-cmd="delete"] {
 		border-color: transparent;
 	}
