@@ -24,3 +24,7 @@ Improved Dracula theme covering the whole extension instead of just the editor
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img alt="Singleview - La+ Darknesss" src="preview/option.webp" width="45%">
 </p>
+
+## Changelog
+### 1.0.16
+- Reduced row-gap between options to 4px in the Style manager Options Pop-Up
