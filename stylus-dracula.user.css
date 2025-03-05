@@ -4,7 +4,7 @@
 @namespace			https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
 @supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.0.16
+@version			1.17.0
 @updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
 @description		Improved dracula theme covering the whole extension instead of just the editor
 @author				Himither
@@ -61,6 +61,11 @@ regexp("^\\w+-extension://.+") {
 		--accent-2: var(--green); /* Checked slider checkbox know thumb */
 		--accent-3: var(--red); /* ??? */
 		--gold1: var(--purple); /* ??? */
+		--radius: 4px;
+		--radius2x: 8px;
+
+		--spacing: 4px;
+		--spacing2x: 8px;
 	}
 
 	/* ------------------------------------------------------ General */
@@ -70,7 +75,6 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	if firacode-font {
-
 		:root .single-editor *:not(i) {
 			font-family: "Fira Code", monospace;
 			font-optical-sizing: auto;
@@ -79,7 +83,6 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	if scrollbars {
-
 		#stylus,
 		#stylus * {
 			scrollbar-width: none;
@@ -87,7 +90,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	.split-btn-menu {
-		border-radius: 4px;
+		border-radius: var(--radius);
 		border-color: var(--currentLine);
 		box-shadow: none;
 	}
@@ -100,12 +103,12 @@ regexp("^\\w+-extension://.+") {
 		cursor: pointer;
 	}
 
-	#stylus .split-btn > button:has( + button) {
-		border-radius: 4px 0 0 4px;
+	#stylus .split-btn > button:has(+ button) {
+		border-radius: var(--radius) 0 0 var(--radius);
 	}
 
 	#stylus .split-btn > button + button {
-		border-radius: 0 4px 4px 0;
+		border-radius: 0 var(--radius) var(--radius) 0;
 		margin-left: 0 !important; /* Must be !important */
 	}
 
@@ -134,10 +137,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus-popup {
 		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
 		max-width: unset !important;
-		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
-		max-width: unset !important;
 	}
-
 
 	#stylus-popup #message-box.config-dialog > div {
 		opacity: 1;
@@ -148,11 +148,9 @@ regexp("^\\w+-extension://.+") {
 		max-height: 100%;
 	}
 
-
 	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
 		border-radius: 0;
 	}
-
 
 	#stylus-popup #options-btn svg {
 		height: 16px;
@@ -168,7 +166,7 @@ regexp("^\\w+-extension://.+") {
 
 	#stylus-popup .config-body label:not(:first-child) {
 		border-top: transparent;
-		padding-top: 4px
+		padding-top: var(--spacing);
 	}
 
 	#stylus-popup #search-results {
@@ -187,24 +185,21 @@ regexp("^\\w+-extension://.+") {
 		justify-content: space-evenly;
 	}
 
-	#stylus-popup :is(.search-result-info,
-	#stylus-popup .search-result-screenshot) {
-		border-radius: 4px;
+	#stylus-popup :is(.search-result-info, #stylus-popup .search-result-screenshot) {
+		border-radius: var(--radius);
 	}
 
 	#stylus-popup .search-result-meta::before {
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 var(--radius) var(--radius);
 	}
 
 	#stylus-popup .search-result [data-type] {
 		background-color: transparent;
 	}
 
-
 	#stylus-popup #menu.delete > div {
 		border-color: var(--red);
 	}
-
 
 	#stylus-popup #menu.delete header {
 		background: var(--red);
@@ -214,7 +209,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus-edit details#options section.aligned {
 		display: flex;
 		flex-direction: column;
-		row-gap: 4px;
+		row-gap: var(--spacing);
 	}
 
 	#stylus-edit details#options section.aligned > div {
@@ -243,15 +238,13 @@ regexp("^\\w+-extension://.+") {
 		width: 50%;
 	}
 
-	#stylus-edit div:is(.CodeMirror-active,
-	#stylus-edit .CodeMirror-focused,
-	#stylus-edit .search-target-editor) {
+	#stylus-edit div:is(.CodeMirror-active, #stylus-edit .CodeMirror-focused, #stylus-edit .search-target-editor) {
 		box-shadow: none;
 	}
 
 	#stylus-edit div.section > div.CodeMirror {
-		margin: 8px 0;
-		border-radius: 4px;
+		margin: var(--spacing2x) 0;
+		border-radius: var(--radius);
 	}
 
 	#stylus-edit div.resize-grip,
@@ -278,7 +271,22 @@ regexp("^\\w+-extension://.+") {
 
 	/* ------------------------------------------------------ Mangage Page */
 	#stylus-manage #manage-settings {
-		padding: 0 4px;
+		padding: 0 var(--spacing);
+	}
+
+	#stylus-manage #filters > #stats {
+		border-radius: var(--radius);
+		background-color: var(--orange);
+		color: var(--bg);
+
+		& > a > i {
+			color: var(--red);
+			border-radius: var(--radius);
+
+			&:hover {
+				background-color: var(--currentLine)
+			}
+		}
 	}
 
 	#stylus-manage summary h2 {
@@ -289,11 +297,11 @@ regexp("^\\w+-extension://.+") {
 		color: var(--currentLine);
 		background-color: var(--orange);
 		border-color: var(--orange);
-		border-radius: 4px;
+		border-radius: var(--radius);
 	}
 
 	#stylus-manage .filter-selection {
-		margin-bottom: 4px;
+		margin-bottom: var(--spacing);
 	}
 
 	#stylus-manage .filter-selection select {
@@ -311,19 +319,19 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus-manage #search-wrapper input {
-		border-radius: 4px 0 0 4px;
+		border-radius: var(--radius) 0 0 var(--radius);
 	}
 
 	#stylus-manage #search-wrapper select {
-		border-radius: 0 4px 4px 0;
+		border-radius: 0 var(--radius) var(--radius) 0;
 		margin-left: 3px;
 	}
 
 	#stylus-manage #manage-text {
-		margin-top: 4px;
+		margin-top: var(--spacing);
 		display: flex;
 		flex-direction: column;
-		row-gap: 4px;
+		row-gap: var(--spacing);
 	}
 
 	#stylus-manage #manage-text span::after {
@@ -336,7 +344,7 @@ regexp("^\\w+-extension://.+") {
 
 	/* Style injection order bottom text */
 	#stylus-manage #message-box #message-box-contents section[data-prio] header {
-		background-color: var(--purple);
+		background-color: var(--orange);
 		color: var(--bg);
 	}
 
@@ -350,14 +358,14 @@ regexp("^\\w+-extension://.+") {
 	#stylus div#help-popup,
 	#stylus body#stylus-options {
 		opacity: 0.95;
-		border-radius: 8px;
+		border-radius: var(--radius2x);
 	}
 
 	#stylus #message-box-title,
 	#stylus #help-popup > div.title,
 	#stylus body#stylus-options header {
 		background-color: var(--currentLine);
-		border-radius: 8px 8px 0 0;
+		border-radius: var(--radius2x) var(--radius2x) 0 0;
 	}
 
 	#stylus div#message-box.danger > div > div#message-box-title {
@@ -374,17 +382,17 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus body#stylus-options div.block {
-		padding-top: 8px;
-		padding-bottom: 8px;
+		padding-top: var(--spacing2x);
+		padding-bottom: var(--spacing2x);
 	}
 
 	#stylus body#stylus-options div.items {
 		display: flex;
 		flex-direction: column;
-		row-gap: 4px;
+		row-gap: var(--spacing);
 	}
 
-	#stylus body#stylus-options div.items label span:nth-child(2):not(:has( + input)),
+	#stylus body#stylus-options div.items label span:nth-child(2):not(:has(+ input)),
 	#stylus body#stylus-options div.items label input:nth-child(3) {
 		margin-left: auto;
 	}
@@ -394,30 +402,35 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus body#stylus-options div.actions button.connect {
-		border-radius: 4px 0 0 4px;
+		border-radius: var(--radius) 0 0 var(--radius);
 	}
 
 	#stylus body#stylus-options div.actions button.connect + button {
-		border-radius: 0 4px 4px 0;
+		border-radius: 0 var(--radius) var(--radius) 0;
+	}
+
+	#stylus body#stylus-options #FOUC {
+		color: var(--bg);
+		background-color: var(--orange);
 	}
 
 	#stylus body#stylus-options footer {
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 var(--radius2x) var(--radius2x);
 	}
 
 	#stylus #message-box-buttons {
 		background-color: var(--bg);
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 var(--radius2x) var(--radius2x);
 	}
 
 	#stylus div#search-replace-dialog {
-		padding-top: .75em;
-		border-radius: 0 0 8px 8px;
+		padding-top: 0.75em;
+		border-radius: 0 0 var(--radius2x) var(--radius2x);
 		border-color: transparent;
 	}
 
 	#stylus div#search-replace-dialog > div {
-		padding-left: .75em;
+		padding-left: 0.75em;
 	}
 
 	#stylus #search-replace-dialog a:hover {
@@ -429,12 +442,12 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus div#search-replace-dialog div[data-type="status"] {
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 var(--radius2x) var(--radius2x);
 	}
 
 	#stylus div#search-replace-dialog textarea {
 		box-shadow: none;
-		border-radius: 4px;
+		border-radius: var(--radius);
 	}
 
 	#stylus #search-replace-dialog > div {
@@ -446,7 +459,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus button,
 	#stylus select,
 	#stylus textarea {
-		border-radius: 4px;
+		border-radius: var(--radius);
 	}
 
 	#stylus input:not([type="checkbox"]),
@@ -461,7 +474,6 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent;
 	}
 
-
 	#stylus input:not([disabled]):hover,
 	#stylus label input[type="checkbox"]:not([disabled]):hover,
 	#stylus select:not([disabled]):hover {
@@ -469,7 +481,6 @@ regexp("^\\w+-extension://.+") {
 		border-color: var(--comment) !important;
 		box-shadow: none;
 	}
-
 
 	#stylus button:not([disabled]):hover {
 		background-color: var(--currentLine);
@@ -483,8 +494,7 @@ regexp("^\\w+-extension://.+") {
 		box-shadow: none;
 	}
 
-	#stylus :is([type="checkbox"],
-	#stylus [type="radio"]):not(:checked):not(.slider) {
+	#stylus :is([type="checkbox"], #stylus [type="radio"]):not(:checked):not(.slider) {
 		background-color: var(--bg);
 		border-color: var(--currentLine);
 	}
@@ -492,7 +502,7 @@ regexp("^\\w+-extension://.+") {
 	#stylus input[type="range"] {
 		cursor: pointer;
 		appearance: none;
-		height: 8px !important;
+		height: var(--spacing2x) !important;
 		border-color: transparent;
 	}
 
@@ -510,8 +520,7 @@ regexp("^\\w+-extension://.+") {
 		border-color: var(--purple);
 	}
 
-	#stylus label:has(:is(input,
-	#stylus select):hover) {
+	#stylus label:has(:is(input, #stylus select):hover) {
 		color: var(--orange);
 	}
 
@@ -521,7 +530,7 @@ regexp("^\\w+-extension://.+") {
 
 	#stylus input.slider {
 		cursor: pointer;
-		height: 8px;
+		height: var(--spacing2x);
 		box-shadow: none;
 	}
 
@@ -568,7 +577,6 @@ regexp("^\\w+-extension://.+") {
 	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
 		color: var(--red) !important;
 	}
-
 
 	#stylus #stylus-popup button[data-cmd="delete"] {
 		border-color: transparent;
@@ -618,7 +626,7 @@ regexp("^\\w+-extension://.+") {
 
 	#stylus #toc li:hover {
 		background-color: var(--currentLine);
-		border-radius: 4px;
+		border-radius: var(--radius);
 	}
 
 	/* ------------------------------------------------------ Icons */

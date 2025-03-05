@@ -28,3 +28,7 @@ Improved Dracula theme covering the whole extension instead of just the editor
 ## Changelog
 ### 1.0.16
 - Reduced row-gap between options to 4px in the Style manager Options Pop-Up
+### 1.17.0
+- Styling for the filter stats in Style manager, which are shown in the top-left corner when any filter are applied to the styles
+- Also styled the **"Styles applied too late?"**-hint in the Style manager options pop-up
+- Changed the similar hint in **"Style injection order"** pop-up to also use orange background-color
