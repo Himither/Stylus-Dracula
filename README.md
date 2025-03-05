@@ -16,15 +16,15 @@
 ## Preview
 
 <p align="center">
-  <img alt="Singleview - Darker" src="preview/install.webp" width="45%">
+  <img alt="Singleview - Darker" src="https://raw.githubusercontent.com/Himither/Stylus-Dracula/refs/heads/main/preview/install.webp" width="45%">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Singleview - La+ Darknesss" src="preview/edit.webp" width="45%">
+  <img alt="Singleview - La+ Darknesss" src="https://raw.githubusercontent.com/Himither/Stylus-Dracula/refs/heads/main/preview/edit.webp" width="45%">
 </p>
 
 <p align="center">
-  <img alt="Singleview - Darker" src="preview/manage.webp" width="45%">
+  <img alt="Singleview - Darker" src="https://raw.githubusercontent.com/Himither/Stylus-Dracula/refs/heads/main/preview/manage.webp" width="45%">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Singleview - La+ Darknesss" src="preview/option.webp" width="45%">
+  <img alt="Singleview - La+ Darknesss" src="https://raw.githubusercontent.com/Himither/Stylus-Dracula/refs/heads/main/preview/option.webp" width="45%">
 </p>
 
 ## Changelog
