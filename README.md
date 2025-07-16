@@ -2,9 +2,10 @@
 
 ## Description
 
-- Extends the editor "Dracula"-theme to the whole extension
-- A smoother, more rounded interface
-- More spacious extension Pop-Up
+- Builds upon the editor [Dracula](https://draculatheme.com/) theme and extends it to the whole extension
+- More spacious extension pop-up offering three search results per row and more readable configuration for complex themes
+- A modern, rounded interface with less harsh corners
+- [Firacode](https://github.com/tonsky/FiraCode) font option for editor (must be installed)
 
 [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css)
 
