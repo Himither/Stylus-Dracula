@@ -1,4 +1,10 @@
 {
+	"[javascript]": {
+		"editor.defaultFormatter": null
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": null
+	},
 	"cSpell.words": [
 		"activeline",
 		"atbottom",
@@ -6,15 +12,25 @@
 		"cmin",
 		"dracula",
 		"firacode",
+		"FOUC",
 		"fugly",
 		"linenumber",
 		"Mangage",
 		"prio",
+		"resizer",
 		"scrollbars",
 		"sidemenu",
 		"Textareas",
 		"unactive",
 		"unhovered",
 		"usercss"
-	]
+	],
+	"editor.detectIndentation": false,
+	"editor.formatOnPaste": false,
+	"editor.formatOnSave": false,
+	"editor.formatOnType": false,
+	"editor.tabSize": 8,
+	"files.associations": {
+		"stylus-dracula.user.css": "stylus"
+	}
 }

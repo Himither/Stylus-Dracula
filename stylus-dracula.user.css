@@ -1,19 +1,18 @@
 /* ==UserStyle==
 
-@name				Stylus Dracula
-@namespace			https://github.com/Himither
+@name			Stylus Dracula
+@namespace		https://github.com/Himither
 @homepageURL		https://github.com/Himither/Stylus-Dracula
-@supportURL			https://github.com/Himither/Stylus-Dracula/issues
-@version			1.17.0
-@updateURL			https://raw.githubusercontent.com/Himither/Stylus-Dracula/master/stylus-dracula.user.css
+@supportURL		https://github.com/Himither/Stylus-Dracula/issues
+@version		1.17.1
 @description		Improved dracula theme covering the whole extension instead of just the editor
-@author				Himither
-@license			MIT
+@author			Himither
+@license		MIT
 @preprocessor		stylus
 
 @var checkbox		firacode-font			"Use Fira Code in editor"		0
-@var range			firacode-weight			"Adjust font weight"			[500, 100, 900, 100, ""]
-@var checkbox		scrollbars				"Hide all scrollbars"			0
+@var range		firacode-weight			"Adjust font weight"			[500, 100, 900, 100, ""]
+@var checkbox		scrollbars			"Hide all scrollbars"			0
 
 ==/UserStyle== */
 @-moz-document regexp("chrome-extension://.*"),
@@ -36,31 +35,56 @@ regexp("^\\w+-extension://.+") {
 		--bg: var(--background);
 
 		/* Turns out you can right-click inspect extension popups in Google Chrome, unlike in Firefox... */
-		--cmin: var(--orange); /* Hovered labels belonging to active styles */
-		--c00: var(--fg); /* ??? */
-		--c10: var(--fg); /* ??? */
-		--c20: var(--fg); /* ??? */
-		--c30: var(--orange); /* Hovered labels belonging to unactive styles */
-		--c40: var(--fg); /* Icons i:hover, .i.info and .i-config */
-		--c45: var(--comment); /* Checked non-slider checkboxes */
-		--c50: var(--currentLine); /* Disabled label, style result borders & header-resize borders an */
-		--c60: var(--currentLine); /* Disabled styles, their labels and options border */
-		--c65: var(--foreground); /* Style order number in the popup */
-		--c70: var(--bg); /* Color of background gradient for popup -> Find Styles */
-		--c75: var(--currentLine); /* Scrollbar & manage page section hover dotted underline */
-		--c80: var(--currentLine); /* Dotted borders */
-		--c85: var(--bg); /* Some horizontal borders and gradient atbottom of find styles*/
-		--c90: var(--bg); /* Options footer */
-		--c95: var(--currentLine); /* Find styles top gradient and unhovered style footer */
-		--c97: var(--bg); /* #header (sidemenu of editor) background */
-		--c98: var(--bg); /* Editor background */
-		--c99: var(--red); /* ??? */
-		--c100: var(--red); /* ??? */
-		--cmax: var(--red); /* ??? */
-		--accent-1: var(--green); /* Checkbox mark for user css on manage page */
-		--accent-2: var(--green); /* Checked slider checkbox know thumb */
-		--accent-3: var(--red); /* ??? */
-		--gold1: var(--purple); /* ??? */
+		--cmin: var(--orange);
+		/* Hovered labels belonging to active styles */
+		--c00: var(--fg);
+		/* ??? */
+		--c10: var(--fg);
+		/* ??? */
+		--c20: var(--fg);
+		/* ??? */
+		--c30: var(--orange);
+		/* Hovered labels belonging to unactive styles */
+		--c40: var(--fg);
+		/* Icons i:hover, .i.info and .i-config */
+		--c45: var(--comment);
+		/* Checked non-slider checkboxes */
+		--c50: var(--currentLine);
+		/* Disabled label, style result borders & header-resize borders an */
+		--c60: var(--currentLine);
+		/* Disabled styles, their labels and options border */
+		--c65: var(--foreground);
+		/* Style order number in the popup */
+		--c70: var(--bg);
+		/* Color of background gradient for popup -> Find Styles */
+		--c75: var(--currentLine);
+		/* Scrollbar & manage page section hover dotted underline */
+		--c80: var(--currentLine);
+		/* Dotted borders */
+		--c85: var(--bg);
+		/* Some horizontal borders and gradient atbottom of find styles*/
+		--c90: var(--bg);
+		/* Options footer */
+		--c95: var(--currentLine);
+		/* Find styles top gradient and unhovered style footer */
+		--c97: var(--bg);
+		/* #header (sidemenu of editor) background */
+		--c98: var(--bg);
+		/* Editor background */
+		--c99: var(--red);
+		/* ??? */
+		--c100: var(--red);
+		/* ??? */
+		--cmax: var(--red);
+		/* ??? */
+		--accent-1: var(--green);
+		/* Checkbox mark for user css on manage page */
+		--accent-2: var(--green);
+		/* Checked slider checkbox know thumb */
+		--accent-3: var(--red);
+		/* ??? */
+		--gold1: var(--purple);
+		/* ??? */
 		--radius: 4px;
 		--radius2x: 8px;
 
@@ -103,13 +127,14 @@ regexp("^\\w+-extension://.+") {
 		cursor: pointer;
 	}
 
-	#stylus .split-btn > button:has(+ button) {
+	#stylus .split-btn>button:has(+ button) {
 		border-radius: var(--radius) 0 0 var(--radius);
 	}
 
-	#stylus .split-btn > button + button {
+	#stylus .split-btn>button+button {
 		border-radius: 0 var(--radius) var(--radius) 0;
-		margin-left: 0 !important; /* Must be !important */
+		margin-left: 0 !important;
+		/* Must be !important */
 	}
 
 	#stylus div#header {
@@ -127,19 +152,22 @@ regexp("^\\w+-extension://.+") {
 
 	/* ------------------------------------------------------ Extension Popup */
 	#stylus:has(#message-box) {
-		height: 600px; /* 600px is the max height, this only applies when open the config of a style*/
+		height: 600px;
+		/* 600px is the max height, this only applies when open the config of a style*/
 	}
 
 	#stylus:has(#message-box) {
-		height: 600px; /* 600px is the max height, this only applies when open the config of a style*/
+		height: 600px;
+		/* 600px is the max height, this only applies when open the config of a style*/
 	}
 
 	#stylus-popup {
-		width: 800px !important; /* 800px is the max width of the popup, !important to overwrite inline style  */
+		width: 800px !important;
+		/* 800px is the max width of the popup, !important to overwrite inline style  */
 		max-width: unset !important;
 	}
 
-	#stylus-popup #message-box.config-dialog > div {
+	#stylus-popup #message-box.config-dialog>div {
 		opacity: 1;
 		box-shadow: none;
 		width: 100%;
@@ -148,7 +176,7 @@ regexp("^\\w+-extension://.+") {
 		max-height: 100%;
 	}
 
-	#stylus-popup #message-box.config-dialog > div > :is(#message-box-title, #message-box-buttons) {
+	#stylus-popup #message-box.config-dialog>div> :is(#message-box-title, #message-box-buttons) {
 		border-radius: 0;
 	}
 
@@ -197,7 +225,7 @@ regexp("^\\w+-extension://.+") {
 		background-color: transparent;
 	}
 
-	#stylus-popup #menu.delete > div {
+	#stylus-popup #menu.delete>div {
 		border-color: var(--red);
 	}
 
@@ -212,12 +240,12 @@ regexp("^\\w+-extension://.+") {
 		row-gap: var(--spacing);
 	}
 
-	#stylus-edit details#options section.aligned > div {
+	#stylus-edit details#options section.aligned>div {
 		display: flex;
 		justify-content: space-between;
 	}
 
-	#stylus-edit details#options section.aligned > div > div {
+	#stylus-edit details#options section.aligned>div>div {
 		margin-left: auto;
 		order: 1;
 	}
@@ -227,14 +255,14 @@ regexp("^\\w+-extension://.+") {
 		flex-direction: column;
 	}
 
-	#stylus-edit section#usw-data > div {
+	#stylus-edit section#usw-data>div {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 	}
 
-	#stylus-edit section#usw-data > div > input {
+	#stylus-edit section#usw-data>div>input {
 		width: 50%;
 	}
 
@@ -242,7 +270,7 @@ regexp("^\\w+-extension://.+") {
 		box-shadow: none;
 	}
 
-	#stylus-edit div.section > div.CodeMirror {
+	#stylus-edit div.section>div.CodeMirror {
 		margin: var(--spacing2x) 0;
 		border-radius: var(--radius);
 	}
@@ -274,12 +302,12 @@ regexp("^\\w+-extension://.+") {
 		padding: 0 var(--spacing);
 	}
 
-	#stylus-manage #filters > #stats {
+	#stylus-manage #filters>#stats {
 		border-radius: var(--radius);
 		background-color: var(--orange);
 		color: var(--bg);
 
-		& > a > i {
+		&>a>i {
 			color: var(--red);
 			border-radius: var(--radius);
 
@@ -354,7 +382,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	/* ------------------------------------------------------ Dialog, Modal */
-	#stylus #message-box > div,
+	#stylus #message-box>div,
 	#stylus div#help-popup,
 	#stylus body#stylus-options {
 		opacity: 0.95;
@@ -362,13 +390,13 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus #message-box-title,
-	#stylus #help-popup > div.title,
+	#stylus #help-popup>div.title,
 	#stylus body#stylus-options header {
 		background-color: var(--currentLine);
 		border-radius: var(--radius2x) var(--radius2x) 0 0;
 	}
 
-	#stylus div#message-box.danger > div > div#message-box-title {
+	#stylus div#message-box.danger>div>div#message-box-title {
 		background-color: var(--red);
 	}
 
@@ -405,7 +433,7 @@ regexp("^\\w+-extension://.+") {
 		border-radius: var(--radius) 0 0 var(--radius);
 	}
 
-	#stylus body#stylus-options div.actions button.connect + button {
+	#stylus body#stylus-options div.actions button.connect+button {
 		border-radius: 0 var(--radius) var(--radius) 0;
 	}
 
@@ -429,7 +457,7 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent;
 	}
 
-	#stylus div#search-replace-dialog > div {
+	#stylus div#search-replace-dialog>div {
 		padding-left: 0.75em;
 	}
 
@@ -450,7 +478,7 @@ regexp("^\\w+-extension://.+") {
 		border-radius: var(--radius);
 	}
 
-	#stylus #search-replace-dialog > div {
+	#stylus #search-replace-dialog>div {
 		background-color: var(--bg);
 	}
 
@@ -535,7 +563,8 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus input.slider::after {
-		box-shadow: none !important; /* Not !important to keep using accent-2 :checked */
+		box-shadow: none !important;
+		/* Not !important to keep using accent-2 :checked */
 		border-color: var(--currentLine);
 	}
 
@@ -545,7 +574,8 @@ regexp("^\\w+-extension://.+") {
 
 	/* Buttons */
 	#stylus button {
-		background-image: unset !important; /* No fugly gradients, needs to be important */
+		background-image: unset !important;
+		/* No fugly gradients, needs to be important */
 	}
 
 	#stylus button.install:hover {
@@ -563,18 +593,18 @@ regexp("^\\w+-extension://.+") {
 		border-color: transparent;
 	}
 
-	#stylus button#save-button:not([disabled]) + button.split-btn-pedal {
+	#stylus button#save-button:not([disabled])+button.split-btn-pedal {
 		background-color: var(--purple);
 		border-color: transparent;
 	}
 
-	#stylus button#save-button:not([disabled]) + button.split-btn-pedal:hover {
+	#stylus button#save-button:not([disabled])+button.split-btn-pedal:hover {
 		color: var(--fg);
 	}
 
 	/* Reset, Cancel & Delete Buttons */
 	#stylus button:is(.delete, #reset, .reset, [data-cmd="default"], [data-cmd="delete"]):not([disabled]),
-	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child {
+	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button~button:last-child {
 		color: var(--red) !important;
 	}
 
@@ -583,7 +613,7 @@ regexp("^\\w+-extension://.+") {
 	}
 
 	#stylus button:is(.delete, #reset, .reset, [data-cmd="default"], [data-cmd="delete"]):not([disabled]):hover,
-	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button ~ button:last-child:hover {
+	#stylus-manage #message-box:not(:is(.help-text, .note, .injection-order, .config-dialog)) button~button:last-child:hover {
 		border-color: var(--red) !important;
 	}
 
